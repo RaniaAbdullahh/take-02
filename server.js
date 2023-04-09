@@ -69,7 +69,7 @@ function helloWorldHandler(req , res){
 function recipesHandler(req , res){
     let recipes = []
     let numberOfReturnedData = 10; // 1 ==> 100
-    axios.get(`https://api.spoonacular.com/recipes/random?apiKey=a7b82b16bd0b456db3c98d38dd1630e2&number=${numberOfReturnedData}`)
+    axios.get(`https://api.spoonacular.com/recipes/random?apiKey=a9fe2023a6de42dda2cca098c5b5ed38&number=${numberOfReturnedData}`)
     .then(result => {
         result.data.recipes.map(recipe => {
             let oneRecipe = new Recipe(recipe.id, recipe.title || '', recipe.readyInMinutes || '', recipe.summary || '', recipe.vegetarian , recipe.instructions || '', recipe.sourceUrl || '', recipe.image || '');
@@ -88,7 +88,7 @@ function searchRecipesHandler(req, res){
         console.log(req.query.search);
         let recipes = []
         let query = req.query.search;
-        axios.get(`https://api.spoonacular.com/recipes/complexSearch?=apiKey=a7b82b16bd0b456db3c98d38dd1630e2&query=${query}/`)
+        axios.get(`https://api.spoonacular.com/recipes/complexSearch?=apiKey=a9fe2023a6de42dda2cca098c5b5ed38&query=${query}/`)
         .then(result => {
             result.data.results.map(recipe => {
                 let oneRecipe = new Recipe(recipe.id, recipe.title || '', recipe.readyInMinutes || '', recipe.summary || '', recipe.vegetarian , recipe.instructions || '', recipe.sourceUrl || '', recipe.image || '');
